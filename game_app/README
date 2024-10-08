@@ -2,6 +2,9 @@ How to run this project
 - go mod tidy
 - go mod vendor
 
+Set PATH as 
+ GAME_APP_CONF_PATH=/Users/abhishek.goyal/gopath/src/github.com/coda-payments/game_app/app-config.json
+
 - Implementation
     - There are 2 endpoints exposed as of now
         1. /healthcheck - just returning 200 http status code as of now
