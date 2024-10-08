@@ -13,7 +13,7 @@ import (
 
 // IsServerAlive checks if the server is alive by sending an HTTP GET request
 // to the server health check endpoint.
-var IsServerAlive = func(ctx context.Context, isAliveChannel chan atomic.Bool, url *url.URL) {
+func IsServerAlive(ctx context.Context, isAliveChannel chan atomic.Bool, url *url.URL) {
 	// Create a new HTTP client with a timeout
 	client := &http.Client{
 		Timeout: time.Duration(config.Config.Backend.Endpoint[constant.Healthcheck].Timeout) * time.Second, // Set a timeout for the request
