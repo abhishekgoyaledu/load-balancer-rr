@@ -1,0 +1,21 @@
+{
+  "server": {
+    "port": 8082,
+    "writeTimeout": 10,
+    "readTimeout": 10
+  },
+  "backend": {
+    "routes": [
+      "http://localhost:8085",
+      "http://localhost:8086",
+      "http://localhost:8087"
+    ],
+    "endpoints": {
+      "healthcheck": {
+        "url": "/healthcheck",
+        "timeout": 5
+      }
+    }
+  },
+  "healthCheckTickerTimeInSeconds": 5
+}

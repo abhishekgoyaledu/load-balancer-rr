@@ -1,0 +1,61 @@
+# Load Balancer using Round Robin Algorithm
+
+This project implements a simple Load Balancer using the Round Robin algorithm in Go.
+
+## Setup Project
+
+1. **Clone the repository:**
+   ```sh
+   git clone git@github.com:abhishekgoyaledu/cp_go_load_balancer_rr.git
+   ```
+2. **Resolve dependencies:**
+   ```sh
+   go mod tidy
+   go mod vendor
+   ```
+3. **Run the application:**
+   ```sh
+   go build main.go
+   go run main.go
+   ```
+   The Load Balancer will be running on host `localhost` at port `8082`.
+
+## Current Implementation
+
+### ServerPool
+The `ServerPool` struct has four methods to manage backend servers:
+
+1. **ListServiceBackends()**:
+   - Returns a list of configured backend servers.
+   
+2. **NextAvailableBackend()**:
+   - Returns the next backend server that needs to serve the request.
+   
+3. **RegisterServiceBackend(backend backend.Backend)**:
+   - Registers a backend server during the setup of the Load Balancer. This can also be used for dynamic registration of backends.
+   
+4. **GetServerPoolSize()**:
+   - Returns the current size of the server pool.
+
+### RoundRobin
+Implemented as `ServerPool` and includes the above functions.
+
+### Healthcheck
+Configured with a configurable ticker for periodic health checks, triggering goroutines at the specified intervals.
+
+### Alerts
+Currently, alerts are added as comments and not implemented using any library.
+
+## Future Scope
+
+1. **Service-Level Routes**:
+   - Extend to support multiple services by mapping routes, e.g., `map[simple-api]: "routes:["",""]"`.
+
+2. **Persistence**:
+   - Persist the current server state using Redis or the file system to maintain state across restarts.
+
+3. **Dynamic Server Addition**:
+   - Implement `/register` endpoint for dynamic registration of new backend servers.
+
+4. **Metrics**:
+   - Push metrics from the service for monitoring.

@@ -1,0 +1,9 @@
+{
+  "server": {
+    "port": 9000,
+    "writeTimeout": 15,
+    "readTimeout": 15
+  },
+  "thresholdForSlowResponse": [12, 25],
+  "mockSlowResponse": true
+}

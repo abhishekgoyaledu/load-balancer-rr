@@ -1,0 +1,8 @@
+How to run this project
+- go mod tidy
+- go mod vendor
+
+- Implementation
+    - There are 2 endpoints exposed as of now
+        1. /healthcheck - just returning 200 http status code as of now
+        2. /create - receives a interface{} object and returns the same in response
